@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
 
 // m "math" importa lib math como 'm'
 
@@ -14,6 +18,27 @@ func resultado(nota float64) string {
 		return "Aprovado"
 	}
 	return "Reprovado"
+}
+
+func notasConceito(notaUm float64, notaDois float64) string {
+	//media := (notaUm + notaDois) / 2 // inicialização pode ser na condição, igual a um for
+
+	if media := (notaUm + notaDois) / 2; media >= 8 { // só existe no bloco
+		return "A+"
+	} else if media >= 6 && media < 8 {
+		return "A"
+	} else if media >= 4 && media < 6 {
+		return "B"
+	} else {
+		return "C"
+	}
+
+}
+
+func randNumber() int {
+	s := rand.NewSource(time.Now().UnixNano())
+	r := rand.New(s)
+	return r.Intn(100)
 }
 
 func main() {
@@ -43,8 +68,15 @@ func main() {
 	// aritmetica()
 
 	// operador ternário
-	fmt.Println(resultado(8.94))
+	//fmt.Println(resultado(8.94))
 	ponteiros()
+	fmt.Println(notasConceito(8, 8))
+
+	if numero := randNumber(); numero >= 70 {
+		fmt.Println(numero)
+	}
+
+	repeticao()
 
 	// vars()
 	// tv50, tv32, sorvete := comprar(true, false)
