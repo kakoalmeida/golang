@@ -13,7 +13,7 @@ func tamanhoString(word string) {
 }
 
 func resultado(nota float64) string {
-	//não um operador ao estilo das outra linguagens mas pode ser feito de tal forma
+	//não tem um operador ao estilo das outra linguagens mas pode ser feito de tal forma
 	if nota >= 7 { //utiliza parenteses apenas em precedencia ou expressões
 		return "Aprovado"
 	}
@@ -41,6 +41,36 @@ func randNumber() int {
 	return r.Intn(100)
 }
 
+func ponteiros() {
+	i := 1
+
+	var p *int = nil // nome do ponteiro e tipo; nil == null
+
+	p = &i // acessa endereço
+	//*p++   // acessa valor
+
+	i += 3
+
+	fmt.Printf("Endereço de p = %v\nEndereço de i = %v\nValor de *p = %d\nValor de i = %d\n", p, &i, *p, i)
+}
+
+func repeticao() {
+
+	// não existe while em Go, apenas for
+	// o for pode ser utilizado das seguintes maneiras abaixo
+
+	x := 0
+	for x < 10 {
+		fmt.Print(x)
+		x++
+	}
+	println("")
+	for i := x; i > 0; i-- {
+		fmt.Print(i)
+	}
+
+}
+
 func main() {
 
 	// name := "kako"
@@ -60,17 +90,11 @@ func main() {
 
 	// e = &a
 
-	// nome := "Almeida"
-	// tamanhoString(nome)
+	nome := "Almeida"
+	tamanhoString(nome)
 
-	// //fmt.Printf("%v %v %v %q %v \n", a, b, c, d, *e)
-
-	// aritmetica()
-
-	// operador ternário
-	//fmt.Println(resultado(8.94))
 	ponteiros()
-	fmt.Println(notasConceito(8, 8))
+	fmt.Println(notasConceito(3.25, 7.3))
 
 	if numero := randNumber(); numero >= 70 {
 		fmt.Println(numero)
@@ -78,10 +102,4 @@ func main() {
 
 	repeticao()
 
-	// vars()
-	// tv50, tv32, sorvete := comprar(true, false)
-	// fmt.Printf("TV 50: %t, Tv 32: %t, Sorvete: %t, Ficar sem sorvete: %t \n",
-	// 	tv50, tv32, sorvete, !sorvete)
-
-	// %t = representa boolen em print, o resto é igual a C
 }
