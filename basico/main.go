@@ -101,5 +101,5 @@ func main() {
 	}
 
 	repeticao()
-
+	fmt.Println("\n", resultado(7.01))
 }
